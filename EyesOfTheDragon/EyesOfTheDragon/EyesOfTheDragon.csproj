@@ -82,14 +82,29 @@
     <Compile Include="XRpgLibrary\ItemClasses\BaseItem.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\ItemDataManager.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\ItemManager.cs" />
+    <Compile Include="XRpgLibrary\ItemClasses\Reagent.cs" />
+    <Compile Include="XRpgLibrary\ItemClasses\ReagentData.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\Shield.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\ShieldData.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\Weapon.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\WeaponData.cs" />
+    <Compile Include="XRpgLibrary\Mechanics.cs" />
+    <Compile Include="XRpgLibrary\Modifier.cs" />
     <Compile Include="XRpgLibrary\RolePlayingGame.cs" />
     <Compile Include="XRpgLibrary\RpgLibrary.cs" />
+    <Compile Include="XRpgLibrary\SkillClasses\Recipe.cs" />
+    <Compile Include="XRpgLibrary\SkillClasses\RecipeManager.cs" />
+    <Compile Include="XRpgLibrary\SkillClasses\Skill.cs" />
+    <Compile Include="XRpgLibrary\SkillClasses\SkillData.cs" />
+    <Compile Include="XRpgLibrary\SkillClasses\SkillDataManager.cs" />
+    <Compile Include="XRpgLibrary\SpellClasses\Spell.cs" />
+    <Compile Include="XRpgLibrary\SpellClasses\SpellData.cs" />
+    <Compile Include="XRpgLibrary\SpellClasses\SpellDataManager.cs" />
     <Compile Include="XRpgLibrary\SpriteClasses\AnimatedSprite.cs" />
     <Compile Include="XRpgLibrary\SpriteClasses\Animation.cs" />
+    <Compile Include="XRpgLibrary\TalentClasses\Talent.cs" />
+    <Compile Include="XRpgLibrary\TalentClasses\TalentData.cs" />
+    <Compile Include="XRpgLibrary\TalentClasses\TalentDataManager.cs" />
     <Compile Include="XRpgLibrary\TileEngine\Camera.cs" />
     <Compile Include="XRpgLibrary\TileEngine\Engine.cs" />
     <Compile Include="XRpgLibrary\TileEngine\MapLayer.cs" />
@@ -124,7 +139,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="E:\Program Files\Microsoft Visual Studio\VC#\Snippets\1033\Visual C#\regions.snippet">
+      <Link>regions.snippet</Link>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

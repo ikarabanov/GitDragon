@@ -13,6 +13,7 @@ namespace EyesOfTheDragon.XRpgLibrary.ItemClasses
         readonly Dictionary<string, ArmorData> armorData = new Dictionary<string, ArmorData>();
         readonly Dictionary<string, ShieldData> shieldData = new Dictionary<string, ShieldData>();
         readonly Dictionary<string, WeaponData> weaponData = new Dictionary<string, WeaponData>();
+        readonly Dictionary<string, ReagentData> reagentData = new Dictionary<string, ReagentData>();
 
         #endregion
 
@@ -32,7 +33,10 @@ namespace EyesOfTheDragon.XRpgLibrary.ItemClasses
         {
             get { return weaponData; }
         }
-
+        public Dictionary<string, ReagentData> ReagentData
+        {
+            get { return reagentData; }
+        }
         #endregion
 
         #region Constructor Region
