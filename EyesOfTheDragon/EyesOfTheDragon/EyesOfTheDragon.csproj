@@ -63,6 +63,8 @@
     <Compile Include="GameScreens\TitleScreen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XRpgLibrary\CharacterClassesX\Character.cs" />
+    <Compile Include="XRpgLibrary\CharacterClassesX\NonPlayerCharacter.cs" />
     <Compile Include="XRpgLibrary\CharacterClasses\AttributePair.cs" />
     <Compile Include="XRpgLibrary\CharacterClasses\Entity.cs" />
     <Compile Include="XRpgLibrary\CharacterClasses\EntityData.cs" />
@@ -74,6 +76,9 @@
     <Compile Include="XRpgLibrary\Controls\LinkLabel.cs" />
     <Compile Include="XRpgLibrary\Controls\ListBox.cs" />
     <Compile Include="XRpgLibrary\Controls\PictureBox.cs" />
+    <Compile Include="XRpgLibrary\ConversationClasses\Conversation.cs" />
+    <Compile Include="XRpgLibrary\ConversationClasses\ConversationManager.cs" />
+    <Compile Include="XRpgLibrary\ConversationClasses\ConversationNode.cs" />
     <Compile Include="XRpgLibrary\GameState.cs" />
     <Compile Include="XRpgLibrary\GameStateManager.cs" />
     <Compile Include="XRpgLibrary\InputHandler.cs" />
@@ -90,6 +95,9 @@
     <Compile Include="XRpgLibrary\ItemClasses\WeaponData.cs" />
     <Compile Include="XRpgLibrary\Mechanics.cs" />
     <Compile Include="XRpgLibrary\Modifier.cs" />
+    <Compile Include="XRpgLibrary\QuestClasses\Quest.cs" />
+    <Compile Include="XRpgLibrary\QuestClasses\QuestManager.cs" />
+    <Compile Include="XRpgLibrary\QuestClasses\QuestStep.cs" />
     <Compile Include="XRpgLibrary\RolePlayingGame.cs" />
     <Compile Include="XRpgLibrary\RpgLibrary.cs" />
     <Compile Include="XRpgLibrary\SkillClasses\Recipe.cs" />

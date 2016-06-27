@@ -80,7 +80,7 @@ namespace EyesOfTheDragon.XRpgLibrary.SpriteClasses
             if (isAnimating)
                 animations[currentAnimation].Update(gametime);
         }
-        public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Camera camera)
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, position, animations[currentAnimation].CurrentFrameRect, Color.White);
         }
