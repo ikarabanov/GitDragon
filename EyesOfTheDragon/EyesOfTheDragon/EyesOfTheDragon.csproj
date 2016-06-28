@@ -82,9 +82,12 @@
     <Compile Include="XRpgLibrary\GameState.cs" />
     <Compile Include="XRpgLibrary\GameStateManager.cs" />
     <Compile Include="XRpgLibrary\InputHandler.cs" />
+    <Compile Include="XRpgLibrary\ItemClassesX\ItemSprite.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\Armor.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\ArmorData.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\BaseItem.cs" />
+    <Compile Include="XRpgLibrary\ItemClasses\Chest.cs" />
+    <Compile Include="XRpgLibrary\ItemClasses\ChestData.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\ItemDataManager.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\ItemManager.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\Reagent.cs" />
@@ -110,6 +113,7 @@
     <Compile Include="XRpgLibrary\SpellClasses\SpellDataManager.cs" />
     <Compile Include="XRpgLibrary\SpriteClasses\AnimatedSprite.cs" />
     <Compile Include="XRpgLibrary\SpriteClasses\Animation.cs" />
+    <Compile Include="XRpgLibrary\SpriteClasses\BaseSprite.cs" />
     <Compile Include="XRpgLibrary\TalentClasses\Talent.cs" />
     <Compile Include="XRpgLibrary\TalentClasses\TalentData.cs" />
     <Compile Include="XRpgLibrary\TalentClasses\TalentDataManager.cs" />
@@ -119,6 +123,9 @@
     <Compile Include="XRpgLibrary\TileEngine\Tile.cs" />
     <Compile Include="XRpgLibrary\TileEngine\TileMap.cs" />
     <Compile Include="XRpgLibrary\TileEngine\Tileset.cs" />
+    <Compile Include="XRpgLibrary\TrapClasses\Trap.cs" />
+    <Compile Include="XRpgLibrary\TrapClasses\TrapData.cs" />
+    <Compile Include="XRpgLibrary\TrapClasses\TrapManager.cs" />
     <Compile Include="XRpgLibrary\WorldClasses\Level.cs" />
     <Compile Include="XRpgLibrary\WorldClasses\World.cs" />
   </ItemGroup>

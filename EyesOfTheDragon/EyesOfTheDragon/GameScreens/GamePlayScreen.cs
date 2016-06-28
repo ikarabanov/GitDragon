@@ -61,13 +61,15 @@ namespace EyesOfTheDragon.GameScreens
         {
             GameRef.SpriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, player.Camera.Transformation);
 
-            world.DrawLevel(GameRef.SpriteBatch, player.Camera);
+            base.Draw(gameTime);
+
+            world.DrawLevel(gameTime, GameRef.SpriteBatch, player.Camera);
             player.Draw(gameTime, GameRef.SpriteBatch);
 
-            base.Draw(gameTime);
             GameRef.SpriteBatch.End();
         }
         #endregion
+
         #region Abstract Method Region
         #endregion
     }

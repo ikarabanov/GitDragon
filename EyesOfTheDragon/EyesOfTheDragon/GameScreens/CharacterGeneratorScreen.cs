@@ -11,6 +11,8 @@ using EyesOfTheDragon.XRpgLibrary.SpriteClasses;
 using EyesOfTheDragon.Components;
 using EyesOfTheDragon.XRpgLibrary.TileEngine;
 using EyesOfTheDragon.XRpgLibrary.WorldClasses;
+using EyesOfTheDragon.XRpgLibrary.ItemClasses;
+using EyesOfTheDragon.XRpgLibrary.ItemClassesX;
 
 namespace EyesOfTheDragon.GameScreens
 {
@@ -25,6 +27,7 @@ namespace EyesOfTheDragon.GameScreens
         string[] genderItems = { "Male", "Female" };
         string[] classItems = { "Fighter", "Wizard", "Rogue", "Priest" };
         Texture2D[,] characterImages;
+        Texture2D containers;
         #endregion
 
         #region Property Region
@@ -55,6 +58,8 @@ namespace EyesOfTheDragon.GameScreens
 
             LoadImages();
             CreateControls();
+            containers = Game.Content.Load<Texture2D>(@"ObjectSprites\containers");
+
         }
         public override void Update(GameTime gameTime)
         {
@@ -208,6 +213,18 @@ namespace EyesOfTheDragon.GameScreens
 
             TileMap map = new TileMap(tilesets, mapLayers);
             Level level = new Level(map);
+
+            ChestData chestData = new ChestData();
+            chestData.Name = "Some Chest";
+            chestData.MinGold = 10;
+            chestData.MaxGold = 101;
+
+            Chest chest = new Chest(chestData);
+
+            BaseSprite chestSprite = new BaseSprite(containers, new Rectangle(0, 0, 32, 32), new Point(10, 10));
+
+            ItemSprite itemSprite = new ItemSprite(chest, chestSprite);
+            level.Chests.Add(itemSprite);
 
             World world = new World(GameRef, GameRef.ScreenRectangle);
             world.Levels.Add(level);

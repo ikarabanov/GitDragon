@@ -61,9 +61,9 @@ namespace EyesOfTheDragon.XRpgLibrary.WorldClasses
         {
             base.Draw(gameTime);
         }
-        public void DrawLevel(SpriteBatch spriteBatch, Camera camera)
+        public void DrawLevel(GameTime gameTime, SpriteBatch spriteBatch, Camera camera)
         {
-            levels[currentLevel].Draw(spriteBatch, camera);
+            levels[currentLevel].Draw(gameTime, spriteBatch, camera);
         }
         #endregion
     }
