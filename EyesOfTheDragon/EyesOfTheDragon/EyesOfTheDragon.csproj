@@ -90,6 +90,8 @@
     <Compile Include="XRpgLibrary\ItemClasses\ChestData.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\ItemDataManager.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\ItemManager.cs" />
+    <Compile Include="XRpgLibrary\ItemClasses\Key.cs" />
+    <Compile Include="XRpgLibrary\ItemClasses\KeyData.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\Reagent.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\ReagentData.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\Shield.cs" />
