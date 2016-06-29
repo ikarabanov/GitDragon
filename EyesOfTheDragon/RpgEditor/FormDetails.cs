@@ -83,7 +83,6 @@ namespace RpgEditor
                     EntityDataManager.EntityData[s]);
             }
         }
-
         public static void WriteItemData()
         {
             foreach (string s in ItemManager.ArmorData.Keys)
@@ -107,6 +106,7 @@ namespace RpgEditor
                     ItemManager.WeaponData[s]);
             }
         }
+
         public static void ReadEntityData()
         {
             entityDataManager = new EntityDataManager();
@@ -119,7 +119,6 @@ namespace RpgEditor
                 entityDataManager.EntityData.Add(entityData.EntityName, entityData);
             }
         }
-
         public static void ReadItemData()
         {
             itemManager = new ItemDataManager();
@@ -156,6 +155,43 @@ namespace RpgEditor
 
         }
 
+        public static void WriteKeyData()
+        {
+            foreach(string s in ItemManager.KeyData.Keys)
+            {
+                XnaSerializer.Serialize<KeyData>(
+                    FormMain.KeyPath + @"\" + s + ".xml", ItemManager.KeyData[s]);
+            }
+        }
+        public static void WriteChestData()
+        {
+            foreach(string s in ItemManager.ChestData.Keys)
+            {
+                XnaSerializer.Serialize<ChestData>(
+                    FormMain.ChestPath + @"\" + s + ".xml", ItemManager.ChestData[s]);
+            }
+        }
+
+        public static void ReadKeyData()
+        {
+            string[] fileNames = Directory.GetFiles(FormMain.KeyPath, "*.xml");
+
+            foreach(string s in fileNames)
+            {
+                KeyData keyData = XnaSerializer.Deserialize<KeyData>(s);
+                itemManager.KeyData.Add(keyData.Name, keyData);
+            }
+        }
+        public static void ReadChestData()
+        {
+            string[] fileNames = Directory.GetFiles(FormMain.ChestPath, "*.xml");
+
+            foreach(string s in fileNames)
+            {
+                ChestData chestData = XnaSerializer.Deserialize<ChestData>(s);
+                itemManager.ChestData.Add(chestData.Name, chestData);
+            }
+        }
         #endregion
     }
 }

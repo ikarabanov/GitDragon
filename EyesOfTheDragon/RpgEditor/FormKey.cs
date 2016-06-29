@@ -113,7 +113,7 @@ namespace RpgEditor
         #endregion
 
         #region Method Region
-        private void FillListBox()
+        public void FillListBox()
         {
             lbDetails.Items.Clear();
 
