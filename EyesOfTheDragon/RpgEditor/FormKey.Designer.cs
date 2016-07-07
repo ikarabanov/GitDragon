@@ -35,13 +35,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 362);
-            this.ControlBox = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MinimizeBox = false;
             this.Name = "FormKey";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Key Details";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
