@@ -9,18 +9,35 @@ namespace EyesOfTheDragon.XRpgLibrary.SkillClasses
     public class SkillData
     {
         #region Field Region
+        public string Name;
+        public string PrimaryAttribute;
+        public Dictionary<string, int> ClassModifiers;
         #endregion
 
         #region Property Region
         #endregion
 
         #region Constructors Region
+        public SkillData()
+        {
+            ClassModifiers = new Dictionary<string, int>();
+        }
         #endregion
 
         #region Methods Region
         #endregion
 
         #region Virtual Method Region
+        public override string ToString()
+        {
+            string toString = Name + ", ";
+            toString += PrimaryAttribute;
+
+            foreach (string s in ClassModifiers.Keys)
+                toString += ", " + s + "+" + ClassModifiers[s].ToString();
+
+            return toString;
+        }
         #endregion
     }
 }

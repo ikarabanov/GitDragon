@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ItemClasses="EyesOfTheDragon.XRpgLibrary.ItemClasses">
+  <Asset Type="ItemClasses:ArmorData">
+    <Name>Leather Helm</Name>
+    <Type>Helm</Type>
+    <Price>10</Price>
+    <Weight>2</Weight>
+    <Equipped>false</Equipped>
+    <ArmorLocation>Head</ArmorLocation>
+    <DefenseValue>0</DefenseValue>
+    <DefenseModifier>5</DefenseModifier>
+    <AllowableClasses>
+      <Item>Fighter</Item>
+      <Item>Priest</Item>
+      <Item>Rogue</Item>
+    </AllowableClasses>
+  </Asset>
+</XnaContent>

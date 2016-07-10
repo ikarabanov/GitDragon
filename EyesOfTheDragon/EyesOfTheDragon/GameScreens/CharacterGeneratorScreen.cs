@@ -13,6 +13,7 @@ using EyesOfTheDragon.XRpgLibrary.TileEngine;
 using EyesOfTheDragon.XRpgLibrary.WorldClasses;
 using EyesOfTheDragon.XRpgLibrary.ItemClasses;
 using EyesOfTheDragon.XRpgLibrary.ItemClassesX;
+using System.IO;
 
 namespace EyesOfTheDragon.GameScreens
 {
@@ -218,13 +219,25 @@ namespace EyesOfTheDragon.GameScreens
             chestData.Name = "Some Chest";
             chestData.MinGold = 10;
             chestData.MaxGold = 101;
-
             Chest chest = new Chest(chestData);
-
             BaseSprite chestSprite = new BaseSprite(containers, new Rectangle(0, 0, 32, 32), new Point(10, 10));
-
             ItemSprite itemSprite = new ItemSprite(chest, chestSprite);
             level.Chests.Add(itemSprite);
+
+            //Look at Form Details ReadChestData to enter chests into item manager and then load it on screen.
+            // ChestData chestDate2 = Game.Content.Load<ChestData>(@"Game\Chests\Plain Chest");
+            string[] fileName = Directory.GetFiles(@"Content\Game\Chests\", "*.xml");
+            ChestData chestData2 = XnaSerializer.XnaSerializer.Deserialize<ChestData>(fileName[0]);
+            Chest chest2 = new Chest(chestData2);
+
+            Console.WriteLine(chestData2.ToString());
+
+            BaseSprite chestSprite2 = new BaseSprite(containers, new Rectangle(0, 0, 32, 32), new Point(5, 5));
+
+            ItemSprite itemSprite2 = new ItemSprite(chest2, chestSprite2);
+            level.Chests.Add(itemSprite2);
+
+
 
             World world = new World(GameRef, GameRef.ScreenRectangle);
             world.Levels.Add(level);

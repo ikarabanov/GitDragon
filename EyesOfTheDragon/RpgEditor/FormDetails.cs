@@ -1,5 +1,6 @@
 ﻿using EyesOfTheDragon.XRpgLibrary.CharacterClasses;
 using EyesOfTheDragon.XRpgLibrary.ItemClasses;
+using EyesOfTheDragon.XRpgLibrary.SkillClasses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,21 +20,23 @@ namespace RpgEditor
 
         protected static ItemDataManager itemManager;
         protected static EntityDataManager entityDataManager;
+        protected static SkillDataManager skillManager;
 
         #endregion
 
         #region Property Region
-
         public static ItemDataManager ItemManager
         {
             get { return itemManager; }
         }
-
         public static EntityDataManager EntityDataManager
         {
             get { return entityDataManager; }
         }
-
+        public static SkillDataManager SkillManager
+        {
+            get { return skillManager; }
+        }
         #endregion
 
         #region Constructor Region
@@ -190,6 +193,25 @@ namespace RpgEditor
             {
                 ChestData chestData = XnaSerializer.Deserialize<ChestData>(s);
                 itemManager.ChestData.Add(chestData.Name, chestData);
+            }
+        }
+
+        public static void WriteSkillData()
+        {
+            foreach (string s in SkillManager.SkillData.Keys)
+            {
+                XnaSerializer.Serialize<SkillData>(FormMain.SkillPath + @"\" + s + ".xml", SkillManager.SkillData[s]);
+            }
+        }
+        public static void ReadSkillData()
+        {
+            skillManager = new SkillDataManager();
+
+            string[] fileNames = Directory.GetFiles(FormMain.SkillPath, "*.xml");
+            foreach (string s in fileNames)
+            {
+                SkillData skillData = XnaSerializer.Deserialize<SkillData>(s);
+                skillManager.SkillData.Add(skillData.Name, skillData);
             }
         }
         #endregion

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ItemClasses="EyesOfTheDragon.XRpgLibrary.ItemClasses">
+  <Asset Type="ItemClasses:ArmorData">
+    <Name>Chain Mail Boots</Name>
+    <Type>Boots</Type>
+    <Price>30</Price>
+    <Weight>4</Weight>
+    <Equipped>false</Equipped>
+    <ArmorLocation>Feed</ArmorLocation>
+    <DefenseValue>0</DefenseValue>
+    <DefenseModifier>10</DefenseModifier>
+    <AllowableClasses>
+      <Item>Fighter</Item>
+      <Item>Priest</Item>
+    </AllowableClasses>
+  </Asset>
+</XnaContent>

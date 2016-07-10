@@ -105,8 +105,8 @@ namespace RpgEditor
                     lbDetails.Items.RemoveAt(lbDetails.SelectedIndex);
                     ItemManager.KeyData.Remove(entity);
 
-                    if (File.Exists(FormMain.ItemPath + @"\Key\" + entity + ".xml"))
-                        File.Delete(FormMain.ItemPath + @"\Key\" + entity + ".xml");
+                    if (File.Exists(FormMain.KeyPath + @"\Key\" + entity + ".xml"))
+                        File.Delete(FormMain.KeyPath + @"\Key\" + entity + ".xml");
                 }
             }
         }

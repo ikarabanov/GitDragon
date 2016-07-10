@@ -42,6 +42,7 @@
             this.shieldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.keysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.skillsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,10 +53,11 @@
             this.classesToolStripMenuItem,
             this.itemsToolStripMenuItem,
             this.keysToolStripMenuItem,
-            this.chestsToolStripMenuItem});
+            this.chestsToolStripMenuItem,
+            this.skillsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(321, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(381, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -151,11 +153,18 @@
             this.chestsToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.chestsToolStripMenuItem.Text = "C&hests";
             // 
+            // skillsToolStripMenuItem
+            // 
+            this.skillsToolStripMenuItem.Enabled = false;
+            this.skillsToolStripMenuItem.Name = "skillsToolStripMenuItem";
+            this.skillsToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.skillsToolStripMenuItem.Text = "&Skills";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 262);
+            this.ClientSize = new System.Drawing.Size(381, 262);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -185,5 +194,6 @@
         private System.Windows.Forms.ToolStripMenuItem shieldToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem keysToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chestsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem skillsToolStripMenuItem;
     }
 }

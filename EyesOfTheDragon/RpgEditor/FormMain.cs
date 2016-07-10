@@ -23,12 +23,14 @@ namespace RpgEditor
         FormWeapon frmWeapon;
         FormKey frmKey;
         FormChest frmChest;
+        FormSkill frmSkill;
 
         static string gamePath = "";
         static string classPath = "";
         static string itemPath = "";
         static string chestPath = "";
         static string keyPath = "";
+        static string skillPath = "";
 
         #endregion
 
@@ -57,7 +59,10 @@ namespace RpgEditor
         {
             get { return keyPath; }
         }
-
+        public static string SkillPath
+        {
+            get { return skillPath; }
+        }
         #endregion
 
         #region Constructor Region
@@ -79,6 +84,8 @@ namespace RpgEditor
 
             keysToolStripMenuItem.Click += new EventHandler(keysToolStripMenuItem_Click);
             chestsToolStripMenuItem.Click += new EventHandler(chestsToolStripMenuItem_Click);
+
+            skillsToolStripMenuItem.Click += new EventHandler(skillsToolStripMenuItem_Click);
         }
 
         #endregion
@@ -118,6 +125,7 @@ namespace RpgEditor
                             itemPath = Path.Combine(gamePath, "Items");
                             keyPath = Path.Combine(gamePath, "Keys");
                             chestPath = Path.Combine(gamePath, "Chests");
+                            skillPath = Path.Combine(gamePath, "Skills");
 
                             if (Directory.Exists(gamePath))
                                 throw new Exception("Selected directory already exists.");
@@ -129,6 +137,7 @@ namespace RpgEditor
                             Directory.CreateDirectory(itemPath + @"\Weapon");
                             Directory.CreateDirectory(keyPath);
                             Directory.CreateDirectory(chestPath);
+                            Directory.CreateDirectory(skillPath);
 
                             rolePlayingGame = frmNewGame.RolePlayingGame;
                             XnaSerializer.Serialize<RolePlayingGame>(gamePath + @"\Game.xml", rolePlayingGame);
@@ -143,6 +152,7 @@ namespace RpgEditor
                         itemsToolStripMenuItem.Enabled = true;
                         keysToolStripMenuItem.Enabled = true;
                         chestsToolStripMenuItem.Enabled = true;
+                        skillsToolStripMenuItem.Enabled = true;
 
                     }
                 }
@@ -213,6 +223,7 @@ namespace RpgEditor
                     FormDetails.WriteItemData();
                     FormDetails.WriteChestData();
                     FormDetails.WriteKeyData();
+                    FormDetails.WriteSkillData();
                 }
                 catch (Exception ex)
                 {
@@ -296,6 +307,17 @@ namespace RpgEditor
             frmKey.Show();
             frmKey.BringToFront();
         }
+
+        void skillsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (frmSkill == null)
+            {
+                frmSkill = new FormSkill();
+                frmSkill.MdiParent = this;
+            }
+            frmSkill.Show();
+            frmSkill.BringToFront();
+        }
         #endregion
 
         #region Method Region
@@ -307,6 +329,7 @@ namespace RpgEditor
             itemPath = Path.Combine(gamePath, "Items");
             keyPath = Path.Combine(gamePath, "Keys");
             chestPath = Path.Combine(gamePath, "Chests");
+            skillPath = Path.Combine(gamePath, "Skills");
 
             if (!Directory.Exists(keyPath))
             {
@@ -316,6 +339,10 @@ namespace RpgEditor
             {
                 Directory.CreateDirectory(chestPath);
             }
+            if(!Directory.Exists(skillPath))
+            {
+                Directory.CreateDirectory(skillPath);
+            }
 
             rolePlayingGame = XnaSerializer.Deserialize<RolePlayingGame>(gamePath + @"\Game.xml");
             //rolePlayingGame = XmlManager.Load<RolePlayingGame>(gamePath + @"\Game.xml");
@@ -324,6 +351,7 @@ namespace RpgEditor
             FormDetails.ReadItemData();
             FormDetails.ReadKeyData();
             FormDetails.ReadChestData();
+            FormDetails.ReadSkillData();
 
             PrepareForms();
         }
@@ -371,11 +399,18 @@ namespace RpgEditor
                 frmChest.MdiParent = this;
             }
             frmChest.FillListBox();
+            if(frmSkill == null)
+            {
+                frmSkill = new FormSkill();
+                frmSkill.MdiParent = this;
+            }
+            frmSkill.FillListBox();
 
             classesToolStripMenuItem.Enabled = true;
             itemsToolStripMenuItem.Enabled = true;
             keysToolStripMenuItem.Enabled = true;
             chestsToolStripMenuItem.Enabled = true;
+            skillsToolStripMenuItem.Enabled = true;
         }
 
         #endregion
