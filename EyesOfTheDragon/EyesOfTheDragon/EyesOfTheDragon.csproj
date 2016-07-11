@@ -59,6 +59,7 @@
     <Compile Include="GameScreens\CharacterGeneratorScreen.cs" />
     <Compile Include="GameScreens\GamePlayScreen.cs" />
     <Compile Include="GameScreens\LoadGameScreen.cs" />
+    <Compile Include="GameScreens\SkillScreen.cs" />
     <Compile Include="GameScreens\StartMenuScreen.cs" />
     <Compile Include="GameScreens\TitleScreen.cs" />
     <Compile Include="Program.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="XRpgLibrary\Controls\LinkLabel.cs" />
     <Compile Include="XRpgLibrary\Controls\ListBox.cs" />
     <Compile Include="XRpgLibrary\Controls\PictureBox.cs" />
+    <Compile Include="XRpgLibrary\Controls\SpinBox.cs" />
     <Compile Include="XRpgLibrary\ConversationClasses\Conversation.cs" />
     <Compile Include="XRpgLibrary\ConversationClasses\ConversationManager.cs" />
     <Compile Include="XRpgLibrary\ConversationClasses\ConversationNode.cs" />
