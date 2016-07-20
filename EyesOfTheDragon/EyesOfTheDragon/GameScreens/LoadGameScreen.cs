@@ -1,5 +1,7 @@
 ﻿using EyesOfTheDragon.Components;
 using EyesOfTheDragon.XRpgLibrary;
+using EyesOfTheDragon.XRpgLibrary.CharacterClasses;
+using EyesOfTheDragon.XRpgLibrary.CharacterClassesX;
 using EyesOfTheDragon.XRpgLibrary.Controls;
 using EyesOfTheDragon.XRpgLibrary.SpriteClasses;
 using EyesOfTheDragon.XRpgLibrary.TileEngine;
@@ -147,7 +149,10 @@ namespace EyesOfTheDragon.GameScreens
                 GameRef.Content.Load<Texture2D>(@"PlayerSprites\malefighter"),
                 animations);
 
-            GamePlayScreen.Player = new Player(GameRef, sprite);
+            Entity entity = new Entity("Encelwyn", DataManager.EntityData["Fighter"], EntityGender.Male, EntityType.Character);
+
+            Character character = new Character(entity, sprite);
+            GamePlayScreen.Player = new Player(GameRef, character);
         }
 
         private void CreateWorld()

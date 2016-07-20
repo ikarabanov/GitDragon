@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Components\Player.cs" />
+    <Compile Include="Components\DataManager.cs" />
     <Compile Include="EyesOfTheDragon.cs" />
     <Compile Include="GameScreens\BaseGameState.cs" />
     <Compile Include="GameScreens\CharacterGeneratorScreen.cs" />

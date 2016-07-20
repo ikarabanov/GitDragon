@@ -1,4 +1,5 @@
 ﻿using EyesOfTheDragon.XRpgLibrary;
+using EyesOfTheDragon.XRpgLibrary.CharacterClassesX;
 using EyesOfTheDragon.XRpgLibrary.SpriteClasses;
 using EyesOfTheDragon.XRpgLibrary.TileEngine;
 using Microsoft.Xna.Framework;
@@ -17,7 +18,7 @@ namespace EyesOfTheDragon.Components
         #region Field Region
         Camera camera;
         EyesOfTheDragon gameRef;
-        readonly AnimatedSprite sprite;
+        readonly Character character;
         #endregion
 
         #region Property Region
@@ -28,16 +29,20 @@ namespace EyesOfTheDragon.Components
         }
         public AnimatedSprite Sprite
         {
-            get { return sprite; }
+            get { return character.Sprite; }
+        }
+        public Character Character
+        {
+            get { return character; }
         }
         #endregion
 
         #region Constructor Region
-        public Player (EyesOfTheDragon game, AnimatedSprite sprite)
+        public Player (EyesOfTheDragon game, Character character)
         {
             gameRef = (EyesOfTheDragon)game;
             camera = new Camera(gameRef.ScreenRectangle);
-            this.sprite = sprite;
+            this.character = character;
         }
         #endregion
 
@@ -45,76 +50,76 @@ namespace EyesOfTheDragon.Components
         public void Update(GameTime gameTime)
         {
             camera.Update(gameTime);
-            sprite.Update(gameTime);
+            Sprite.Update(gameTime);
 
             if (InputHandler.KeyReleased(Keys.PageUp))
             {
                 camera.ZoomIn();
                 if (camera.CameraMode == CameraMode.Follow)
-                    camera.LockToSprite(sprite);
+                    camera.LockToSprite(Sprite);
             }
             else if (InputHandler.KeyReleased(Keys.PageDown))
             {
                 camera.ZoomOut();
                 if (camera.CameraMode == CameraMode.Follow)
-                    camera.LockToSprite(sprite);
+                    camera.LockToSprite(Sprite);
             }
 
             Vector2 motion = new Vector2();
 
             if (InputHandler.KeyDown(Keys.W))
             {
-                sprite.CurrentAnimation = AnimationKey.Up;
+                Sprite.CurrentAnimation = AnimationKey.Up;
                 motion.Y = -1;
             }
             else if (InputHandler.KeyDown(Keys.S))
             {
-                sprite.CurrentAnimation = AnimationKey.Down;
+                Sprite.CurrentAnimation = AnimationKey.Down;
                 motion.Y = 1;
             }
             if (InputHandler.KeyDown(Keys.A))
             {
-                sprite.CurrentAnimation = AnimationKey.Left;
+                Sprite.CurrentAnimation = AnimationKey.Left;
                 motion.X = -1;
             }
             else if (InputHandler.KeyDown(Keys.D))
             {
-                sprite.CurrentAnimation = AnimationKey.Right;
+                Sprite.CurrentAnimation = AnimationKey.Right;
                 motion.X = 1;
             }
 
             if (motion != Vector2.Zero)
             {
-                sprite.IsAnimating = true;
+                Sprite.IsAnimating = true;
                 motion.Normalize();
 
-                sprite.Position += motion * sprite.Speed;
-                sprite.LockToMap();
+                Sprite.Position += motion * Sprite.Speed;
+                Sprite.LockToMap();
                 if (camera.CameraMode == CameraMode.Follow)
-                    camera.LockToSprite(sprite);
+                    camera.LockToSprite(Sprite);
             }
             else
             {
-                sprite.IsAnimating = false;
+                Sprite.IsAnimating = false;
             }
 
             if (InputHandler.KeyReleased(Keys.F))
             {
                 camera.ToggleCameraMode();
                 if (camera.CameraMode == CameraMode.Follow)
-                    camera.LockToSprite(sprite);
+                    camera.LockToSprite(Sprite);
             }
 
             if (camera.CameraMode != CameraMode.Follow)
             {
                 if (InputHandler.KeyReleased(Keys.C))
-                    camera.LockToSprite(sprite);
+                    camera.LockToSprite(Sprite);
             }
 
         }
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            sprite.Draw(gameTime, spriteBatch);
+            character.Draw(gameTime, spriteBatch);
         }
         #endregion
     }

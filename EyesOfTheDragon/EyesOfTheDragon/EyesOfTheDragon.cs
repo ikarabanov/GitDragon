@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 
 using EyesOfTheDragon.XRpgLibrary;
 using EyesOfTheDragon.GameScreens;
+using EyesOfTheDragon.Components;
 
 namespace EyesOfTheDragon
 {
@@ -75,10 +76,15 @@ namespace EyesOfTheDragon
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
             SpriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            DataManager.ReadEntityData(Content);
+            DataManager.ReadArmorData(Content);
+            DataManager.ReadShieldData(Content);
+            DataManager.ReadWeaponData(Content);
+            DataManager.ReadChestData(Content);
+            DataManager.ReadKeyData(Content);
+            DataManager.ReadSkillData(Content);
         }
 
         /// <summary>

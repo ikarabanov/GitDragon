@@ -14,6 +14,8 @@ using EyesOfTheDragon.XRpgLibrary.WorldClasses;
 using EyesOfTheDragon.XRpgLibrary.ItemClasses;
 using EyesOfTheDragon.XRpgLibrary.ItemClassesX;
 using System.IO;
+using EyesOfTheDragon.XRpgLibrary.CharacterClasses;
+using EyesOfTheDragon.XRpgLibrary.CharacterClassesX;
 
 namespace EyesOfTheDragon.GameScreens
 {
@@ -26,7 +28,8 @@ namespace EyesOfTheDragon.GameScreens
         PictureBox characterImage;
 
         string[] genderItems = { "Male", "Female" };
-        string[] classItems = { "Fighter", "Wizard", "Rogue", "Priest" };
+        //string[] classItems = { "Fighter", "Wizard", "Rogue", "Priest" };
+        string[] classItems;
         Texture2D[,] characterImages;
         Texture2D containers;
         #endregion
@@ -56,6 +59,15 @@ namespace EyesOfTheDragon.GameScreens
         protected override void LoadContent()
         {
             base.LoadContent();
+
+            classItems = new string[DataManager.EntityData.Count];
+            int counter = 0;
+
+            foreach (string className in DataManager.EntityData.Keys)
+            {
+                classItems[counter] = className;
+                counter++;
+            }
 
             LoadImages();
             CreateControls();
@@ -167,7 +179,16 @@ namespace EyesOfTheDragon.GameScreens
             AnimatedSprite sprite = new AnimatedSprite(
                     characterImages[genderSelector.SelectedIndex, classSelector.SelectedIndex],
                     animations);
-            GamePlayScreen.Player = new Player(GameRef, sprite);
+            EntityGender gender = EntityGender.Male;
+
+            if (genderSelector.SelectedIndex == 1)
+                gender = EntityGender.Female;
+
+            Entity entity = new Entity("Pat", DataManager.EntityData[classSelector.SelectedItem], gender, EntityType.Character);
+
+            Character character = new Character(entity, sprite);
+
+            GamePlayScreen.Player = new Player(GameRef, character);
         }
         public void CreateWorld()
         {
