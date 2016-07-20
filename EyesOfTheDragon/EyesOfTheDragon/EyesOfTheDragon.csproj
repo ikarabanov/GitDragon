@@ -85,6 +85,9 @@
     <Compile Include="XRpgLibrary\GameState.cs" />
     <Compile Include="XRpgLibrary\GameStateManager.cs" />
     <Compile Include="XRpgLibrary\InputHandler.cs" />
+    <Compile Include="XRpgLibrary\ItemClassesX\Backpack.cs" />
+    <Compile Include="XRpgLibrary\ItemClassesX\GameItem.cs" />
+    <Compile Include="XRpgLibrary\ItemClassesX\GameItemManager.cs" />
     <Compile Include="XRpgLibrary\ItemClassesX\ItemSprite.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\Armor.cs" />
     <Compile Include="XRpgLibrary\ItemClasses\ArmorData.cs" />
