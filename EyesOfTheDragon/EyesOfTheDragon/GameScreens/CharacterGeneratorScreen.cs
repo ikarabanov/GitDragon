@@ -141,10 +141,11 @@ namespace EyesOfTheDragon.GameScreens
         {
             InputHandler.Flush();
 
-            StateManager.ChangeState(GameRef.GamePlayScreen);
-
             CreatePlayer();
             CreateWorld();
+
+            GameRef.SkillScreen.SkillPoints = 25;
+            StateManager.ChangeState(GameRef.SkillScreen);
         }
         public void CreatePlayer()
         {

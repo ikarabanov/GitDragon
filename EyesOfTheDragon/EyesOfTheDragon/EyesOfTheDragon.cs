@@ -23,6 +23,7 @@ namespace EyesOfTheDragon
         public StartMenuScreen StartMenuScreen;
         public GamePlayScreen GamePlayScreen;
         public CharacterGeneratorScreen CharacterGeneratorScreen;
+        public SkillScreen SkillScreen;
         #endregion
 
         #region Screen Field Region
@@ -50,6 +51,7 @@ namespace EyesOfTheDragon
             StartMenuScreen = new StartMenuScreen(this, stateManager);
             GamePlayScreen = new GamePlayScreen(this, stateManager);
             CharacterGeneratorScreen = new CharacterGeneratorScreen(this, stateManager);
+            SkillScreen = new SkillScreen(this, stateManager);
 
             stateManager.ChangeState(TitleScreen);
         }

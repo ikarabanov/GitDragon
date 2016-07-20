@@ -62,7 +62,7 @@ namespace EyesOfTheDragon.GameScreens
         #region Virtual Method Region
         #endregion
 
-        #region XNA MEthod Region
+        #region XNA Method Region
         public override void Initialize()
         {
             base.Initialize();
@@ -93,6 +93,102 @@ namespace EyesOfTheDragon.GameScreens
 
             pointsRemaining = new Label();
 
+            pointsRemaining.Text = "Skill Points: " + unassignedPoints.ToString();
+            pointsRemaining.Position = nextControlPosition;
+
+            nextControlPosition.Y += ControlManager.SpriteFont.LineSpacing + 10f;
+
+            ControlManager.Add(pointsRemaining);
+
+            foreach (string s in skillFiles)
+            {
+                SkillData data = Content.Load<SkillData>(s);
+
+                Label label = new Label();
+                label.Text = data.Name;
+                label.Type = data.Name;
+
+                label.Position = nextControlPosition;
+
+                LinkLabel linkLabel = new LinkLabel();
+                linkLabel.TabStop = true;
+                linkLabel.Text = "+";
+                linkLabel.Type = data.Name;
+
+                linkLabel.Position = new Vector2(nextControlPosition.X + 350, nextControlPosition.Y);
+
+                nextControlPosition.Y += ControlManager.SpriteFont.LineSpacing + 10f;
+
+                linkLabel.Selected += addSkillLabel_Selected;
+
+                ControlManager.Add(label);
+                ControlManager.Add(linkLabel);
+
+                skillLabels.Add(new SkillLabelSet(label, linkLabel));
+            }
+
+            nextControlPosition.Y += ControlManager.SpriteFont.LineSpacing + 10f;
+
+            LinkLabel undoLabel = new LinkLabel();
+            undoLabel.Text = "Undo";
+            undoLabel.Position = nextControlPosition;
+            undoLabel.TabStop = true;
+            undoLabel.Selected += new EventHandler(undoLabel_Selected);
+            nextControlPosition.Y += ControlManager.SpriteFont.LineSpacing + 10f;
+
+            ControlManager.Add(undoLabel);
+
+            LinkLabel acceptLabel = new LinkLabel();
+            acceptLabel.Text = "Accept Changes";
+            acceptLabel.Position = nextControlPosition;
+            acceptLabel.TabStop = true;
+            acceptLabel.Selected += new EventHandler(acceptLabel_Selected);
+
+            ControlManager.Add(acceptLabel);
+            ControlManager.NextControl();
+        }
+
+        void acceptLabel_Selected(object sender, EventArgs e)
+        {
+            undoSkill.Clear();
+            StateManager.ChangeState(GameRef.GamePlayScreen);
+        }
+
+        void undoLabel_Selected(object sender, EventArgs e)
+        {
+            if (unassignedPoints == skillPoints)
+                return;
+
+            string skillName = undoSkill.Peek();
+            undoSkill.Pop();
+
+            unassignedPoints++;
+
+            pointsRemaining.Text = "Skill Points: " + unassignedPoints.ToString();
+        }
+
+        void addSkillLabel_Selected(object sender, EventArgs e)
+        {
+            if (unassignedPoints <= 0)
+                return;
+
+            string skillName = ((LinkLabel)sender).Type;
+            undoSkill.Push(skillName);
+            unassignedPoints--;
+
+            pointsRemaining.Text = "Skill Points: " + unassignedPoints.ToString();
+        }
+        public override void Update(GameTime gameTime)
+        {
+            ControlManager.Update(gameTime, PlayerIndex.One);
+            base.Update(gameTime);
+        }
+        public override void Draw(GameTime gameTime)
+        {
+            GameRef.SpriteBatch.Begin();
+            base.Draw(gameTime);
+            ControlManager.Draw(GameRef.SpriteBatch);
+            GameRef.SpriteBatch.End();
         }
         #endregion
     }
